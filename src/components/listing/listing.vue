@@ -1,6 +1,6 @@
 <template>
   <form class="space-y-8 divide-y divide-gray-200">
-    <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+    <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5 mt-10">
       <div class="space-y-6 sm:space-y-5">
         <div>
           <h3 class="text-lg font-medium leading-6 text-gray-900">
@@ -203,7 +203,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style></style>
