@@ -1,13 +1,29 @@
 <template>
-  <div>
-    <router-link to="/">HomeView</router-link>
-    <router-link to="/about">AboutView</router-link>
+  <div class="main">
+    <navbarVue />
     <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
-export default {};
+import Listing from './components/listing/listing.vue'
+import Footer from './components/footer/Footer.vue'
+import navbarVue from './components/header/navbar.vue'
+export default {
+  components: {
+    navbarVue,
+    Listing: Listing,
+    Footer
+  }
+}
 </script>
 
-<style></style>
+<style>
+.main {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+</style>
