@@ -8,7 +8,7 @@
           <div class="flex flex-shrink-0 items-center">
             <img
               class="block h-11 w-auto"
-              src="../../assets/Recology Logo.png"
+              src="../../assets/IMG_0631.jpg"
               alt="Your Company"
             />
           </div>
