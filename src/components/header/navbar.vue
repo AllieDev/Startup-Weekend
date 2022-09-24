@@ -7,7 +7,8 @@
         <div class="relative z-10 flex px-2 lg:px-0">
           <div class="flex flex-shrink-0 items-center">
             <img
-              class="block h-11 w-auto"
+              @click="navigate"
+              class="block h-11 w-auto custom-logo"
               src="../../assets/IMG_0631.jpg"
               alt="Your Company"
             />
@@ -79,18 +80,34 @@
               <MenuItems
                 class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
-                <MenuItem
-                  v-for="item in userNavigation"
-                  :key="item.name"
-                  v-slot="{ active }"
-                >
+                <MenuItem>
                   <a
-                    :href="item.href"
+                    href="/"
                     :class="[
-                      active ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700',
+                      isActive('profile') ? 'bg-gray-100' : '',
+                      'block py-2 px-4 text-sm text-gray-700'
                     ]"
-                    >{{ item.name }}</a
+                    >Profile</a
+                  >
+                </MenuItem>
+                <MenuItem>
+                  <span
+                    :class="[
+                      isActive('brand') ? 'bg-gray-100' : '',
+                      'block py-2 px-4 text-sm text-gray-700'
+                    ]"
+                    @click="changeProfileType('brand')"
+                    >View as Brand</span
+                  >
+                </MenuItem>
+                <MenuItem>
+                  <span
+                    :class="[
+                      isActive('contractor') ? 'bg-gray-100' : '',
+                      'block py-2 px-4 text-sm text-gray-700'
+                    ]"
+                    @click="changeProfileType('contractor')"
+                    >View as Contractor</span
                   >
                 </MenuItem>
               </MenuItems>
@@ -107,7 +124,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium',
+            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</router-link
@@ -126,7 +143,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'block rounded-md py-2 px-3 text-base font-medium',
+            'block rounded-md py-2 px-3 text-base font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</DisclosureButton
@@ -155,12 +172,22 @@
         </div>
         <div class="mt-3 space-y-1 px-2">
           <DisclosureButton
-            v-for="item in userNavigation"
-            :key="item.name"
             as="a"
-            :href="item.href"
+            href="/"
             class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
-            >{{ item.name }}</DisclosureButton
+            >Profile</DisclosureButton
+          >
+          <DisclosureButton
+            as="span"
+            class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+            @click="changeProfileType('brand')"
+            >View as Brand</DisclosureButton
+          >
+          <DisclosureButton
+            @click="changeProfileType('contractor')"
+            as="span"
+            class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+            >View as Contractor</DisclosureButton
           >
         </div>
       </div>
@@ -176,32 +203,28 @@ import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems,
-} from "@headlessui/vue";
-import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+  MenuItems
+} from '@headlessui/vue'
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 export default {
   data() {
     return {
-      searchParam: "",
+      searchParam: '',
+      active: false,
       user: {
-        name: "Tom Cook",
-        email: "tom@example.com",
+        name: 'Tom Cook',
+        email: 'tom@example.com',
         imageUrl:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
       },
       navigation: [
-        { name: "Home", href: "/" },
-        { name: "Post Listing", href: "/listing" },
-        { name: "Dashboard", href: "/dashboard" },
-      ],
-      userNavigation: [
-        { name: "Your Profile", href: "#" },
-        { name: "Settings", href: "#" },
-        { name: "Sign out", href: "#" },
-      ],
-    };
+        { name: 'Home', href: '/' },
+        { name: 'Post Listing', href: '/listing' },
+        { name: 'Dashboard', href: '/dashboard' }
+      ]
+    }
   },
   components: {
     Disclosure,
@@ -214,12 +237,27 @@ export default {
     MagnifyingGlassIcon,
     Bars3Icon,
     BellIcon,
-    XMarkIcon,
+    XMarkIcon
   },
   methods: {
-    search() {
-      this.$store.commit("updateSearchParam", this.searchParam);
+    isActive(brand) {
+      return brand == this.$store.state.user
     },
-  },
-};
+    search() {
+      this.$store.commit('updateSearchParam', this.searchParam)
+    },
+    navigate() {
+      this.$router.push({ name: 'home' })
+    },
+    changeProfileType(profileType) {
+      this.$store.commit('setUserType', profileType)
+    }
+  }
+}
 </script>
+
+<style>
+.custom-logo {
+  cursor: pointer;
+}
+</style>

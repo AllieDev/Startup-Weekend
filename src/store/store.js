@@ -3,6 +3,7 @@ import { selectedProducts } from '../data/dummy'
 const store = createStore({
   state() {
     return {
+      user: 'brand',
       counter: 0,
       products: [
         {
@@ -102,6 +103,9 @@ const store = createStore({
       ]
       state.selectedProduct.price = payload.options
       state.selectedProduct.categories = payload.categories
+    },
+    setUserType: (state, payload) => {
+      state.user = payload
     }
   },
   getters: {}
