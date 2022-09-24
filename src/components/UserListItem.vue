@@ -12,6 +12,7 @@
           v-for="product in products"
           :key="product.id"
           class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+          @click="select(product)"
         >
           <div
             class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96"
@@ -55,6 +56,12 @@ export default {
           return reg.test(pr.name) || reg.test(pr.description)
         })
     })
+  },
+  methods: {
+    select(product) {
+      this.$store.commit('setSelectedProduct', product)
+      this.$router.push('/preview')
+    }
   }
 }
 </script>
