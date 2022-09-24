@@ -7,8 +7,8 @@
         <div class="relative z-10 flex px-2 lg:px-0">
           <div class="flex flex-shrink-0 items-center">
             <img
-              class="block h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              class="block h-11 w-auto"
+              src="../../assets/Recology Logo.png"
               alt="Your Company"
             />
           </div>
@@ -88,7 +88,7 @@
                     :href="item.href"
                     :class="[
                       active ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700'
+                      'block py-2 px-4 text-sm text-gray-700',
                     ]"
                     >{{ item.name }}</a
                   >
@@ -107,7 +107,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
+            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</router-link
@@ -126,7 +126,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'block rounded-md py-2 px-3 text-base font-medium'
+            'block rounded-md py-2 px-3 text-base font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</DisclosureButton
@@ -176,32 +176,32 @@ import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems
-} from '@headlessui/vue'
-import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+  MenuItems,
+} from "@headlessui/vue";
+import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 export default {
   data() {
     return {
-      searchParam: '',
+      searchParam: "",
       user: {
-        name: 'Tom Cook',
-        email: 'tom@example.com',
+        name: "Tom Cook",
+        email: "tom@example.com",
         imageUrl:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       },
       navigation: [
-        { name: 'Your Profile', href: '#' },
-        { name: 'Settings', href: '#' },
-        { name: 'Sign out', href: '#' }
+        { name: "Home", href: "/" },
+        { name: "Post Listing", href: "/listing" },
+        { name: "Dashboard", href: "/dashboard" },
       ],
       userNavigation: [
-        { name: 'Your Profile', href: '#' },
-        { name: 'Settings', href: '#' },
-        { name: 'Sign out', href: '#' }
-      ]
-    }
+        { name: "Your Profile", href: "#" },
+        { name: "Settings", href: "#" },
+        { name: "Sign out", href: "#" },
+      ],
+    };
   },
   components: {
     Disclosure,
@@ -214,12 +214,12 @@ export default {
     MagnifyingGlassIcon,
     Bars3Icon,
     BellIcon,
-    XMarkIcon
+    XMarkIcon,
   },
   methods: {
     search() {
-      this.$store.commit('updateSearchParam', this.searchParam)
-    }
-  }
-}
+      this.$store.commit("updateSearchParam", this.searchParam);
+    },
+  },
+};
 </script>
