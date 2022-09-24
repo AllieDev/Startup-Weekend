@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
-import { selectedProducts } from '../data/dummy'
+import { selectedProducts, contractors, users } from '../data/dummy'
+
 const store = createStore({
   state() {
     return {
       user: 'brand',
+      users: users,
       counter: 0,
       products: [
         {
@@ -87,7 +89,8 @@ const store = createStore({
         }
       ],
       filterParam: '',
-      selectedProduct: selectedProducts
+      selectedProduct: selectedProducts,
+      contractors: contractors
     }
   },
   mutations: {

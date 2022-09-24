@@ -47,7 +47,7 @@
                   />
                   <p>
                     Completed by
-                    {{ " " }}
+                    {{ ' ' }}
                     <time :datetime="position.closeDate">{{
                       position.closeDateFull
                     }}</time>
@@ -63,35 +63,35 @@
 </template>
 
 <script setup>
-import { CalendarIcon, MapPinIcon, UsersIcon } from "@heroicons/vue/20/solid";
+import { CalendarIcon, MapPinIcon, UsersIcon } from '@heroicons/vue/20/solid'
 
 const positions = [
   {
     id: 1,
-    title: "Make",
-    type: "In Progress",
+    title: 'Make',
+    type: 'In Progress',
     // location: "Remote",
-    department: "Sara",
-    closeDate: "2020-01-07",
-    closeDateFull: "January 14, 2020",
+    department: 'Ali',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 14, 2020'
   },
   {
     id: 2,
-    title: "Needs to be shorten",
-    type: "In Progress",
+    title: 'Needs to be shorten',
+    type: 'In Progress',
     // location: "Remote",
-    department: "Sam",
-    closeDate: "2020-01-07",
-    closeDateFull: "January 14, 2020",
+    department: 'Sam',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 14, 2020'
   },
   {
     id: 3,
-    title: "Damaged button",
-    type: "Done",
+    title: 'Damaged button',
+    type: 'Done',
     // location: "Remote",
-    department: "Kate",
-    closeDate: "2020-01-14",
-    closeDateFull: "January 8, 2020",
-  },
-];
+    department: 'Kate',
+    closeDate: '2020-01-14',
+    closeDateFull: 'January 8, 2020'
+  }
+]
 </script>
