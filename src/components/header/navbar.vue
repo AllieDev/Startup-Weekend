@@ -1,5 +1,5 @@
 <template>
-  <Disclosure as="header" class="bg-white shadow" v-slot="{ open }">
+  <Disclosure as="header" class="bg-white shadow mb-10" v-slot="{ open }">
     <div
       class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8"
     >
