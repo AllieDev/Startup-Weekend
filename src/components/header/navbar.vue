@@ -1,19 +1,3 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
   <Disclosure as="header" class="bg-white shadow" v-slot="{ open }">
     <div
@@ -113,10 +97,10 @@
         </div>
       </div>
       <nav class="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
-        <a
+        <router-link
           v-for="item in navigation"
           :key="item.name"
-          :href="item.href"
+          :to="item.href"
           :class="[
             item.current
               ? 'bg-gray-100 text-gray-900'
@@ -124,7 +108,7 @@
             'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</a
+          >{{ item.name }}</router-link
         >
       </nav>
     </div>
@@ -204,7 +188,6 @@ const user = {
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "List an item", href: "/listing", current: false },
-  { name: "Projects", href: "#", current: false },
   { name: "Dashboard", href: "/dashboard", current: false },
 ];
 const userNavigation = [

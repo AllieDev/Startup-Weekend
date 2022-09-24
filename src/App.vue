@@ -1,26 +1,23 @@
 <template>
   <div class="main">
-    <navbarVue></navbarVue>
+    <navbarVue />
 
-    <router-link to="/">HomeView</router-link>
-    <router-link to="/about">AboutView</router-link>
-    <router-link to="/listing">List an item</router-link>
     <router-view></router-view>
     <Footer />
   </div>
 </template>
 
 <script>
-import Listing from './components/listing/listing.vue'
-import Footer from './components/footer/Footer.vue'
-import navbarVue from './components/header/navbar.vue'
+import Listing from "./components/listing/listing.vue";
+import Footer from "./components/footer/Footer.vue";
+import navbarVue from "./components/header/navbar.vue";
 export default {
   components: {
     navbarVue,
     Listing: Listing,
-    Footer
-  }
-}
+    Footer,
+  },
+};
 </script>
 
 <style>

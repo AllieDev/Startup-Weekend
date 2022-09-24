@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>HomeView</div>
     <UserListItemVue />
   </div>
 </template>
