@@ -1,19 +1,3 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <template>
   <div class="bg-white">
     <div
@@ -63,31 +47,78 @@
 const products = [
   {
     id: 1,
-    name: "Basic Tee 8-Pack",
-    href: "#",
-    price: "$256",
+    name: 'Damaged button',
+    href: '#',
+    price: '$256',
     description:
-      "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
-    options: "8 colors",
+      'Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.',
+    options: 'budget $40',
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
+      'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
     imageAlt:
-      "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
+      'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.'
   },
   {
     id: 2,
-    name: "Basic Tee",
-    href: "#",
-    price: "$32",
+    name: 'Needs to be shorten',
+    href: '#',
+    price: '$32',
     description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
-    options: "Black",
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'budget $30',
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+      'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
   },
-  // More products...
-];
+  {
+    id: 3,
+    name: 'Modifying the actual pattern',
+    href: '#',
+    price: '$32',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'budget $12',
+    imageSrc:
+      'https://www.verywellfamily.com/thmb/-RntoulMuSjjFQsLwjQN3P64nFw=/fit-in/1178x1142/filters:no_upscale():max_bytes(150000):strip_icc()/ScreenShot2022-02-11at9.52.58AM-1d9f25e8a1b640d7adbbda419ef731b3.png',
+    imageAlt: 'Front of plain black t-shirt.'
+  },
+  {
+    id: 4,
+    name: 'shorten the body of a top',
+    href: '#',
+    price: '$32',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'budget $23',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
+  },
+  {
+    id: 5,
+    name: 'Letting out a seam',
+    href: '#',
+    price: '$32',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'budget $10',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
+    imageAlt: 'Front of plain black t-shirt.'
+  },
+  {
+    id: 6,
+    name: 'Taking in a seam',
+    href: '#',
+    price: '$32',
+    description:
+      'Look like a visionary CEO and wear the same black t-shirt every day.',
+    options: 'budget $21',
+    imageSrc:
+      'https://media.istockphoto.com/photos/women-clothes-hanging-on-hangers-clothing-rails-fashion-design-picture-id916092484?k=20&m=916092484&s=612x612&w=0&h=2aTLAucj_-qbbfhBiJEXfdiY3-k0gx0el8OrKFpi3O8=',
+    imageAlt: 'Front of plain black t-shirt.'
+  }
+]
 </script>
 
 <style scoped></style>
