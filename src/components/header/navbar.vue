@@ -33,6 +33,8 @@
                 class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Search"
                 type="search"
+                v-model="searchParam"
+                @keyup="search"
               />
             </div>
           </div>
@@ -86,7 +88,7 @@
                     :href="item.href"
                     :class="[
                       active ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700',
+                      'block py-2 px-4 text-sm text-gray-700'
                     ]"
                     >{{ item.name }}</a
                   >
@@ -105,7 +107,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium',
+            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</router-link
@@ -124,7 +126,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'block rounded-md py-2 px-3 text-base font-medium',
+            'block rounded-md py-2 px-3 text-base font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</DisclosureButton
@@ -166,7 +168,7 @@
   </Disclosure>
 </template>
 
-<script setup>
+<script>
 import {
   Disclosure,
   DisclosureButton,
@@ -174,25 +176,50 @@ import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems,
-} from "@headlessui/vue";
-import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+  MenuItems
+} from '@headlessui/vue'
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "List an item", href: "/listing", current: false },
-  { name: "Dashboard", href: "/dashboard", current: false },
-];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+export default {
+  data() {
+    return {
+      searchParam: '',
+      user: {
+        name: 'Tom Cook',
+        email: 'tom@example.com',
+        imageUrl:
+          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+      },
+      navigation: [
+        { name: 'Your Profile', href: '#' },
+        { name: 'Settings', href: '#' },
+        { name: 'Sign out', href: '#' }
+      ],
+      userNavigation: [
+        { name: 'Your Profile', href: '#' },
+        { name: 'Settings', href: '#' },
+        { name: 'Sign out', href: '#' }
+      ]
+    }
+  },
+  components: {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    MagnifyingGlassIcon,
+    Bars3Icon,
+    BellIcon,
+    XMarkIcon
+  },
+  methods: {
+    search() {
+      this.$store.commit('updateSearchParam', this.searchParam)
+    }
+  }
+}
 </script>
