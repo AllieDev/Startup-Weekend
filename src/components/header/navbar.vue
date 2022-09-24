@@ -82,12 +82,12 @@
               >
                 <MenuItem>
                   <a
-                    href="/"
+                    href="/dashboard"
                     :class="[
                       isActive('profile') ? 'bg-gray-100' : '',
                       'block py-2 px-4 text-sm text-gray-700'
                     ]"
-                    >Profile</a
+                    >Dashboard</a
                   >
                 </MenuItem>
                 <MenuItem>
@@ -173,9 +173,9 @@
         <div class="mt-3 space-y-1 px-2">
           <DisclosureButton
             as="a"
-            href="/"
+            href="/dashboard"
             class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
-            >Profile</DisclosureButton
+            >Dashboard</DisclosureButton
           >
           <DisclosureButton
             as="span"
@@ -217,12 +217,11 @@ export default {
         name: 'Tom Cook',
         email: 'tom@example.com',
         imageUrl:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+          'https://thumbs.dreamstime.com/b/menino-de-sorriso-do-avatar-gr%C3%A1fico-73285335.jpg'
       },
       navigation: [
         { name: 'Home', href: '/' },
-        { name: 'Post Listing', href: '/listing' },
-        { name: 'Dashboard', href: '/dashboard' }
+        { name: 'Create Listing', href: '/listing' }
       ]
     }
   },
