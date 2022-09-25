@@ -289,7 +289,7 @@ export default {
         !this.form.title.length ||
         !this.form.description.length ||
         !this.form.categories.length ||
-        this.form.value === null
+        this.form.value == null
       ) {
         alert('Form is invalid!')
         return
@@ -340,8 +340,8 @@ export default {
           }
         })
         .then((result) => {
-          this.co2e = result.data.co2e
-          this.modalData.co2e = result.data.co2e
+          this.co2e = Math.round(result.data.co2e, 2)
+          this.modalData.co2e = this.co2e
           const treeNum = this.co2e !== 0 ? (this.co2e < 27 ? 1 : 2) : 0
           this.modalData.description = `You saved ${treeNum} tree(s) by choosing to repair your cloth instead of sending it to landfills.`
         })

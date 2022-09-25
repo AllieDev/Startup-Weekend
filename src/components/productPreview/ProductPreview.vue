@@ -20,7 +20,7 @@
                 <span class="sr-only"> {{ image.name }} </span>
                 <span class="absolute inset-0 overflow-hidden rounded-md">
                   <img
-                    :src="image.src"
+                    :src="image"
                     alt=""
                     class="h-full w-full object-cover object-center"
                   />
@@ -37,10 +37,10 @@
           </div>
 
           <TabPanels class="aspect-w-1 aspect-h-1 w-full">
-            <TabPanel v-for="image in product.images" :key="image.id">
+            <TabPanel v-for="image in product.images" :key="image">
               <img
-                :src="image.src"
-                :alt="image.alt"
+                :src="image"
+                :alt="image"
                 class="h-full w-full object-cover object-center sm:rounded-lg"
               />
             </TabPanel>
