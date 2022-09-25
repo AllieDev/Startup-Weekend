@@ -1,5 +1,5 @@
 <template>
-  <Listing class="listings" />
+  <Listing />
 </template>
 
 <script>
@@ -14,9 +14,4 @@ export default {
 }
 </script>
 
-<style>
-.listings {
-  width: 500px;
-  margin: auto;
-}
-</style>
+<style></style>
