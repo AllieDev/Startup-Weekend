@@ -287,7 +287,9 @@ export default {
       if (
         !this.form.images.length ||
         !this.form.title.length ||
-        !this.form.description.length
+        !this.form.description.length ||
+        !this.form.categories.length ||
+        this.form.value === null
       ) {
         alert('Form is invalid!')
         return
