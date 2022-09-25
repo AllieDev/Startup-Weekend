@@ -85,7 +85,7 @@
                     href="/dashboard"
                     :class="[
                       isActive('profile') ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700'
+                      'block py-2 px-4 text-sm text-gray-700',
                     ]"
                     >Dashboard</a
                   >
@@ -94,20 +94,20 @@
                   <span
                     :class="[
                       isActive('brand') ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700'
+                      'block py-2 px-4 text-sm text-gray-700',
                     ]"
                     @click="changeProfileType('brand')"
-                    >View as Brand</span
+                    >View Contractors</span
                   >
                 </MenuItem>
                 <MenuItem>
                   <span
                     :class="[
                       isActive('contractor') ? 'bg-gray-100' : '',
-                      'block py-2 px-4 text-sm text-gray-700'
+                      'block py-2 px-4 text-sm text-gray-700',
                     ]"
                     @click="changeProfileType('contractor')"
-                    >View as Contractor</span
+                    >View cutomer listings</span
                   >
                 </MenuItem>
               </MenuItems>
@@ -124,7 +124,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium'
+            'rounded-md py-2 px-3 inline-flex items-center text-sm font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</router-link
@@ -143,7 +143,7 @@
             item.current
               ? 'bg-gray-100 text-gray-900'
               : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900',
-            'block rounded-md py-2 px-3 text-base font-medium'
+            'block rounded-md py-2 px-3 text-base font-medium',
           ]"
           :aria-current="item.current ? 'page' : undefined"
           >{{ item.name }}</DisclosureButton
@@ -203,27 +203,27 @@ import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems
-} from '@headlessui/vue'
-import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+  MenuItems,
+} from "@headlessui/vue";
+import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 export default {
   data() {
     return {
-      searchParam: '',
+      searchParam: "",
       active: false,
       user: {
-        name: 'Tom Cook',
-        email: 'tom@example.com',
+        name: "Tom Cook",
+        email: "tom@example.com",
         imageUrl:
-          'https://thumbs.dreamstime.com/b/menino-de-sorriso-do-avatar-gr%C3%A1fico-73285335.jpg'
+          "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw3MjAxN3wwfDF8c2VhcmNofDN8fHByb2ZpbGV8ZW58MHx8fHwxNjY0MDU0MDk1&ixlib=rb-1.2.1&q=80&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450",
       },
       navigation: [
-        { name: 'Home', href: '/' },
-        { name: 'Create Listing', href: '/listing' }
-      ]
-    }
+        { name: "Home", href: "/" },
+        { name: "Create Listing", href: "/listing" },
+      ],
+    };
   },
   components: {
     Disclosure,
@@ -236,23 +236,23 @@ export default {
     MagnifyingGlassIcon,
     Bars3Icon,
     BellIcon,
-    XMarkIcon
+    XMarkIcon,
   },
   methods: {
     isActive(brand) {
-      return brand == this.$store.state.user
+      return brand == this.$store.state.user;
     },
     search() {
-      this.$store.commit('updateSearchParam', this.searchParam)
+      this.$store.commit("updateSearchParam", this.searchParam);
     },
     navigate() {
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: "home" });
     },
     changeProfileType(profileType) {
-      this.$store.commit('setUserType', profileType)
-    }
-  }
-}
+      this.$store.commit("setUserType", profileType);
+    },
+  },
+};
 </script>
 
 <style>
