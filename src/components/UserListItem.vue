@@ -17,7 +17,7 @@
             class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96"
           >
             <img
-              :src="product.imageSrc"
+              :src="product.images[0]"
               :alt="product.imageAlt"
               class="h-full w-full object-cover object-center sm:h-full sm:w-full"
             />
