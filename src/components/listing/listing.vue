@@ -289,7 +289,7 @@ export default {
         !this.form.title.length ||
         !this.form.description.length ||
         !this.form.categories.length ||
-        this.form.value === null
+        this.form.value == null
       ) {
         alert('Form is invalid!')
         return
