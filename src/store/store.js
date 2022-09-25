@@ -37,7 +37,7 @@ const store = createStore({
           href: '#',
           price: payload.value,
           description: payload.description,
-          options: 'budget $' + Math.random() * 10,
+          options: 'budget $' + Math.round(Math.random() * 10, 2),
           images: payload.images,
           imageAlt: '',
           categories: payload.categories
